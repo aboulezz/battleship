@@ -38,20 +38,25 @@ public class StartBildschirm {
     private Component createComponent() {
 
         JPanel panelMain = new JPanel(new BorderLayout());
+
         JPanel panelMenu = new JPanel(new GridLayout());
+        panelMenu.setPreferredSize(new Dimension(130,300));
+
 
 
         JPanel pButton = new JPanel(new GridLayout(4, 1));
 
         JPanel titel = new JPanel();
 
-        JLabel battleship = new JLabel();
-        battleship.setIcon(new ImageIcon("BATTLESHIP.gif"));
-        battleship.setPreferredSize(new Dimension(200, 50));
+        JLabel battleship = new JLabel("     BATTLESHIP     ");
+
+
+       /* battleship.setIcon(new ImageIcon("BATTLESHIP.gif"));
+        battleship.setPreferredSize(new Dimension(200, 50));*/
 
 
         titel.add(battleship);
-        titel.setPreferredSize(new Dimension(500,51));
+        titel.setPreferredSize(new Dimension(500, 51));
 
 
         JToolBar toolBar = new JToolBar();
@@ -85,9 +90,9 @@ public class StartBildschirm {
 
 
         // Art der Schrift f�r den Spielnamen
-      /*  Font font = new Font("Broadway", Font.BOLD, 32);
+        Font font = new Font("Broadway", Font.BOLD, 32);
         battleship.setFont(font);
-        battleship.setForeground(Color.RED);*/
+        battleship.setForeground(Color.RED);
 
 //Buttons werden dem Panel hinzugef�gt
       /*  pButton.add(pvp);
@@ -110,7 +115,7 @@ public class StartBildschirm {
 //Panels dem "Haupt Panel" hinzufügen
         /*panelMain.add(pButton,BorderLayout.SOUTH)*/
         ;
-        panelMain.add(panelMenu, BorderLayout.CENTER);
+        panelMain.add(panelMenu, BorderLayout.EAST);
 
         panelMain.add(toolBar, BorderLayout.WEST);
 

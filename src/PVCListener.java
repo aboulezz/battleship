@@ -89,8 +89,10 @@ public class PVCListener implements ActionListener {
         button.add(start);*/
 
         pvc.add(eingabe);
+pvc.setPreferredSize(new Dimension(120,300));
        /* pvc.add(button);*/
 
+        panelMenu.removeAll();
 
         panelMenu.add(pvc);
 

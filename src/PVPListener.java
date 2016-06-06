@@ -96,8 +96,8 @@ public class PVPListener implements ActionListener {
         pvp.add(eingabe);
         /*pvp.add(button);*/
 
-
-
+        pvp.setPreferredSize(new Dimension(120,300));
+        panelMenu.removeAll();
         panelMenu.add(pvp);
 
 
