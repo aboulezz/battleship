@@ -58,7 +58,7 @@ public class Spielfeld {
                 feld.setBorder(BorderFactory.createLineBorder(Color.lightGray));
                 feld.setOpaque(true);
                 if (mitListenern == true ) {
-                    feld.addMouseListener(new SpielfeldListener(i,j));
+                    feld.addMouseListener(new SpielfeldListener(feld, i,j));
                 }
                 spielfelder.add(feld);
 

@@ -1,3 +1,5 @@
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -5,7 +7,11 @@ import java.awt.event.MouseListener;
  * Created by surfing on 05/06/2016.
  */
 public class SpielfeldListener implements MouseListener {
-    public SpielfeldListener(int i, int j) {
+    private final JPanel feld;
+
+    public SpielfeldListener(JPanel feld, int i, int j) {
+        this.feld=feld;
+
     }
 
     @Override
@@ -25,11 +31,13 @@ public class SpielfeldListener implements MouseListener {
 
     @Override
     public void mouseEntered(MouseEvent e) {
-        System.out.println("hier was tun");
+
+        this.feld.setBorder(BorderFactory.createLineBorder(Color.RED));
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
+        this.feld.setBorder(BorderFactory.createLineBorder(Color.lightGray));
 
     }
 }

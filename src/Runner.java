@@ -3,8 +3,9 @@
  */
 public class Runner {
     public static void main(String[] args) {
-        //new Plazieren();
-        new Spielfeld("name1","name2", 0);
+        new StartBildschirm();
+//        new Plazieren();
+//        new Spielfeld("name1","name2", 0);
 
     }
 

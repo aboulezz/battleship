@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -9,6 +10,9 @@ import java.awt.event.MouseListener;
 public class Plazieren {
 
 
+    public static final Border BORDER_RED = BorderFactory.createLineBorder(Color.red);
+    public static final Border BORDER_BLUE = BorderFactory.createLineBorder(Color.BLUE);
+    public static final Border BORDER_LIGHTGRAY = BorderFactory.createLineBorder(Color.lightGray);
     private final JFrame frame;
     private JPanel[][] panelArray = new JPanel[10][10];
     int schiffslaenge = 4;
@@ -37,7 +41,7 @@ public class Plazieren {
                 JPanel feld = new JPanel();
                 feld.addMouseListener(new PlazierenListener(i, j));
                 feld.setPreferredSize(new Dimension(50, 50));
-                feld.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                feld.setBorder(BORDER_LIGHTGRAY);
                 feld.setOpaque(true);
                 spielfelder.add(feld);
                 panelArray[i][j] = feld;
@@ -88,7 +92,7 @@ public class Plazieren {
                     //Bereich um das Schiff markieren
                     for (int i = -1; i < schiffslaenge + 1; i++) {
                         for (int j = -1; j < 2; j++) {
-                            panelArray[xPos + i][yPos + j].setBorder(BorderFactory.createLineBorder(Color.red));
+                            panelArray[xPos + i][yPos + j].setBorder(BORDER_RED);
                             panelArray[xPos + i][yPos + j].setOpaque(false);
                         }
                     }
@@ -97,7 +101,7 @@ public class Plazieren {
                 //Schiff markieren
 
                 for (int i = 0; i < schiffslaenge; i++) {
-                    panelArray[xPos + i][yPos].setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                    panelArray[xPos + i][yPos].setBorder(BORDER_BLUE);
                     panelArray[xPos + i][yPos].setOpaque(true);
 
                 }
@@ -106,13 +110,13 @@ public class Plazieren {
                 //Bereich um das Schiff markieren
                 for (int i = -1; i < schiffslaenge + 1; i++) {
                     for (int j = -1; j < 2; j++) {
-                        panelArray[xPos + j][yPos + i].setBorder(BorderFactory.createLineBorder(Color.red));
+                        panelArray[xPos + j][yPos + i].setBorder(BORDER_RED);
                         panelArray[xPos + j][yPos + i].setOpaque(true);
                     }
                 }
                 //Schiff markieren
                 for (int i = 0; i < schiffslaenge; i++) {
-                    panelArray[xPos][yPos + i].setBorder(BorderFactory.createLineBorder(Color.BLUE));
+                    panelArray[xPos][yPos + i].setBorder(BORDER_BLUE);
                     panelArray[xPos][yPos + i].setOpaque(true);
 
                 }
@@ -126,7 +130,7 @@ public class Plazieren {
                 //Bereich um das Schiff markieren rueckgaengig machen
                 for (int i = -1; i < schiffslaenge + 1; i++) {
                     for (int j = -1; j < 2; j++) {
-                        panelArray[xPos + i][yPos + j].setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                        panelArray[xPos + i][yPos + j].setBorder(BORDER_LIGHTGRAY);
                         panelArray[xPos + i][yPos + j].setOpaque(false);
                     }
                 }
@@ -134,7 +138,7 @@ public class Plazieren {
 
                 //Schiff markieren rueckgaengig machen
                 for (int i = 0; i < schiffslaenge; i++) {
-                    panelArray[xPos + i][yPos].setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                    panelArray[xPos + i][yPos].setBorder(BORDER_LIGHTGRAY);
                     panelArray[xPos + i][yPos].setOpaque(false);
 
                 }
@@ -143,7 +147,7 @@ public class Plazieren {
                     //Bereich um das Schiff markieren rueckgaengig machen
                     for (int i = -1; i < schiffslaenge + 1; i++) {
                         for (int j = -1; j < 2; j++) {
-                            panelArray[xPos + j][yPos + i].setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                            panelArray[xPos + j][yPos + i].setBorder(BORDER_LIGHTGRAY);
                             panelArray[xPos + j][yPos + i].setOpaque(false);
                         }
                     }
@@ -151,7 +155,7 @@ public class Plazieren {
 
                 //Schiff markieren rueckgaengig machen
                 for (int i = 0; i < schiffslaenge; i++) {
-                    panelArray[xPos][yPos + i].setBorder(BorderFactory.createLineBorder(Color.lightGray));
+                    panelArray[xPos][yPos + i].setBorder(BORDER_LIGHTGRAY);
                     panelArray[xPos][yPos + i].setOpaque(true);
 
                 }
