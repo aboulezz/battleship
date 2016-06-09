@@ -87,19 +87,25 @@ public class Plazieren {
         @Override
         public void mouseEntered(MouseEvent e) {
 
-            if (drehen == false) {
+            if (!drehen) {
 
-                    //Bereich um das Schiff markieren
+                //Bereich um das Schiff markieren
+
                     for (int i = -1; i < schiffslaenge + 1; i++) {
+
                         for (int j = -1; j < 2; j++) {
-                            panelArray[xPos + i][yPos + j].setBorder(BORDER_RED);
-                            panelArray[xPos + i][yPos + j].setOpaque(false);
+                            if (xPos + i < 10 && xPos + i >= 0 && yPos + j < 10 && yPos + j >= 0) {
+                                panelArray[xPos + i][yPos + j].setBorder(BORDER_RED);
+                                panelArray[xPos + i][yPos + j].setOpaque(false);
+                            } else {
+                                // nix machen
+                            }
+
                         }
                     }
 
 
                 //Schiff markieren
-
                 for (int i = 0; i < schiffslaenge; i++) {
                     panelArray[xPos + i][yPos].setBorder(BORDER_BLUE);
                     panelArray[xPos + i][yPos].setOpaque(true);
@@ -126,12 +132,16 @@ public class Plazieren {
         @Override
         public void mouseExited(MouseEvent e) {
 
-            if (drehen == false) {
+            if (!drehen) {
                 //Bereich um das Schiff markieren rueckgaengig machen
                 for (int i = -1; i < schiffslaenge + 1; i++) {
                     for (int j = -1; j < 2; j++) {
-                        panelArray[xPos + i][yPos + j].setBorder(BORDER_LIGHTGRAY);
-                        panelArray[xPos + i][yPos + j].setOpaque(false);
+                        if (xPos + i < 10 && xPos + i >= 0 && yPos + j < 10 && yPos + j >= 0) {
+                            panelArray[xPos + i][yPos + j].setBorder(BORDER_LIGHTGRAY);
+                            panelArray[xPos + i][yPos + j].setOpaque(false);
+                        } else {
+
+                        }
                     }
                 }
 
@@ -144,13 +154,13 @@ public class Plazieren {
                 }
             } else {
 
-                    //Bereich um das Schiff markieren rueckgaengig machen
-                    for (int i = -1; i < schiffslaenge + 1; i++) {
-                        for (int j = -1; j < 2; j++) {
-                            panelArray[xPos + j][yPos + i].setBorder(BORDER_LIGHTGRAY);
-                            panelArray[xPos + j][yPos + i].setOpaque(false);
-                        }
+                //Bereich um das Schiff markieren rueckgaengig machen
+                for (int i = -1; i < schiffslaenge + 1; i++) {
+                    for (int j = -1; j < 2; j++) {
+                        panelArray[xPos + j][yPos + i].setBorder(BORDER_LIGHTGRAY);
+                        panelArray[xPos + j][yPos + i].setOpaque(false);
                     }
+                }
 
 
                 //Schiff markieren rueckgaengig machen
