@@ -3,8 +3,8 @@
  */
 public class Runner {
     public static void main(String[] args) {
-//        new StartBildschirm();
-        new Plazieren();
+      new StartBildschirm();
+        /*new Plazieren();*/
 //        new Spielfeld("name1","name2", 0);
 
     }
