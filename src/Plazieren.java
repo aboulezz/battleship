@@ -1,6 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
@@ -22,14 +24,34 @@ public class Plazieren {
     public Plazieren() {
 
         this.frame = new JFrame();
+
         this.frame.setContentPane(new BackGroundPane("battleship2.jpg"));
         //this.frame.setBackground(Color.CYAN);
-        this.frame.add(SpielfeldArray());
-
+        JPanel contentpanel = new JPanel(new BorderLayout());
+        contentpanel.setOpaque(true);
+        contentpanel.add(SpielfeldArray(), BorderLayout.WEST);
+        contentpanel.add(Schiffauswahl(), BorderLayout.EAST);
+        this.frame.add(contentpanel);
         this.frame.pack();
         this.frame.setLocationRelativeTo(null);
         this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);
+    }
+
+    private JPanel Schiffauswahl() {
+        JPanel schiffsauswahl = new JPanel(new GridLayout(5,1));
+        schiffsauswahl.setOpaque(true);
+        JButton langesSchiff = new JButton("lang");          //TODO Bilder von Schiffen statt buttons
+        langesSchiff.addActionListener(new PlaceShipListener(schiffslaenge, 5));
+        JButton mittleresSchiff = new JButton("mittel");          //TODO Bilder von Schiffen statt buttons
+        mittleresSchiff.addActionListener(new PlaceShipListener(schiffslaenge, 4));
+        JButton kurzesSchiff = new JButton("kurz");          //TODO Bilder von Schiffen statt buttons
+        mittleresSchiff.addActionListener(new PlaceShipListener(schiffslaenge, 1));
+
+        schiffsauswahl.add(langesSchiff);
+        schiffsauswahl.add(mittleresSchiff);
+        schiffsauswahl.add(kurzesSchiff);
+        return schiffsauswahl;
     }
 
     private JPanel SpielfeldArray() {
@@ -38,7 +60,6 @@ public class Plazieren {
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
-
                 spielfeldInt[i][j] = 0;
                 JPanel feld = new JPanel();
                 feld.addMouseListener(new PlazierenListener(i, j));
@@ -201,6 +222,24 @@ public class Plazieren {
             }
 
 
+        }
+    }
+
+    private class PlaceShipListener implements ActionListener {
+        private final int i;
+
+        public PlaceShipListener(int schiffslaenge, int i) {
+            this.i = i;
+        }
+
+        /**
+         * Invoked when an action occurs.
+         *
+         * @param e
+         */
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            schiffslaenge = this.i;
         }
     }
 }
