@@ -24,16 +24,31 @@ public class FertigGui implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        //Setzen der Spielernamen für das Spielfeld
+        String dranSpieler = "";
+        if (this.counter % 2  == 0){
+            dranSpieler = spielername2;
+        }else{
+            dranSpieler = spielername1;
+        }
         JFrame fertigGui = new JFrame();
+        fertigGui.setContentPane(new BackGroundPane("next.png"));
+        JPanel fertig = new JPanel(new BorderLayout());
+        fertig.setBackground(new Color(0,0,0,0));
         JPanel oben = new JPanel();
-        JLabel naechster = new JLabel("Bist du der naechster Spieler?");
+        oben.setBackground(new Color(0, 0, 0, 0));
+        JLabel naechster = new JLabel( dranSpieler + " du bist der naechster Spieler?");
+        naechster.setBackground(new Color(0, 0, 0, 0));
         oben.add(naechster);
         JPanel unten = new JPanel();
+        unten.setBackground(new Color(0,0,0,0));
         JButton ok = new JButton("ok");
         ok.addActionListener(new okListener(counter, fertigGui, spielername1, spielername2));
         unten.add(ok);
-        fertigGui.add(oben, BorderLayout.NORTH);
-        fertigGui.add(unten, BorderLayout.SOUTH);
+        fertig.add(oben, BorderLayout.NORTH);
+        fertig.add(unten, BorderLayout.SOUTH);
+        fertigGui.add(fertig);
+        fertigGui.setPreferredSize(new Dimension(300, 200));
         fertigGui.pack();
         fertigGui.setLocationRelativeTo(null);
         fertigGui.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

@@ -20,7 +20,7 @@ public class Spielfeld {
         this.spielername2 = spielername2;
         this.counter = counter;
         this.frame = new JFrame("Battleship");
-        this.frame.setContentPane(new BackGroundPane("battleship2.jpg"));
+        this.frame.setContentPane(new BackGroundPane("water02.gif"));
         if (this.counter %2 == 0 ) {
             this.frame.add(spielfeldarray(this.spielername1, false));
             this.frame.add(spielfeldarray(this.spielername2, true));
@@ -48,15 +48,19 @@ public class Spielfeld {
     private JPanel spielfeldarray(String spielerName, boolean b) {
         JPanel spielfelder = new JPanel(new GridLayout(10, 10));
         spielfelder.setBorder(new TitledBorder(spielerName));
+        spielfelder.setBackground(new Color (0,0,0,0));
         boolean mitListenern = b;
 
         for (int i = 0; i < 10; i++) {
             for (int j = 0; j < 10; j++) {
 
                 JPanel feld = new JPanel();
+                //TODO Kästchen schatten beim bewegen noch beseitigen
+                feld.setBackground(new Color(0, 0, 0, 0));
                 feld.setPreferredSize(new Dimension(50, 50));
                 feld.setBorder(BorderFactory.createLineBorder(Color.lightGray));
-                feld.setOpaque(true);
+                /*feld.setOpaque(false);*/
+
                 if (mitListenern == true ) {
                     feld.addMouseListener(new SpielfeldListener(feld, i,j));
                 }

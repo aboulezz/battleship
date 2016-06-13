@@ -33,11 +33,13 @@ public class SpielfeldListener implements MouseListener {
     public void mouseEntered(MouseEvent e) {
 
         this.feld.setBorder(BorderFactory.createLineBorder(Color.RED));
+
     }
 
     @Override
     public void mouseExited(MouseEvent e) {
         this.feld.setBorder(BorderFactory.createLineBorder(Color.lightGray));
+
 
     }
 }

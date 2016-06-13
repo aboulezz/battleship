@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 public class PVCListener implements ActionListener {
     private final JFrame frame;
     private final JPanel panelMenu;
+    private String spielername1;
+    private String spielername2;
 
 
     public PVCListener(JFrame frame, JPanel panel) {
@@ -21,7 +23,7 @@ public class PVCListener implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         JPanel pvc = new JPanel();
         JPanel eingabe = new JPanel(new GridLayout(8, 1));
-        /*JPanel button = new JPanel(new GridLayout(2, 1));*/
+
 
 
         pvc.setLayout(new BoxLayout(pvc, BoxLayout.PAGE_AXIS));
@@ -37,13 +39,12 @@ public class PVCListener implements ActionListener {
         panelMenu.setBackground(new Color(0, 0, 0, 0));
         pvc.setBackground(new Color(0, 0, 0, 0));
         eingabe.setBackground(new Color(0, 0, 0, 0));
-       /* button.setBackground(new Color(0, 0, 0, 0));*/
+
 
 
         // Erstellen der Labels für die Namen eingabe
         JLabel label_sp1 = new JLabel("Name Spieler 1");
-        /*JLabel label_sp1_ = new JLabel("");*/
-       /* JLabel label_sp1_blank = new JLabel("");*/
+
         label_sp1.setFont(Font.decode("Courier New"));
         label_sp1.setForeground(Color.WHITE);
         label_sp1.setFont(label.getFont().deriveFont(Font.BOLD));
@@ -53,7 +54,6 @@ public class PVCListener implements ActionListener {
         String[] difficultStrings = {"Leicht", "Normal", "Schwer"};
 
 
-
 // Erstellt combo box mit 3 Items.
 
         JComboBox difficultList = new JComboBox(difficultStrings);
@@ -61,7 +61,10 @@ public class PVCListener implements ActionListener {
         difficultList.addActionListener(this);
 
 //Erzeugen der Textfelder zur Namen eingabe
-        JTextField spielerName1 = new JTextField("Name ");
+        JTextField tx_Spieler1 = new JTextField("");
+
+        //Wir nciht angezeicht und dient nur zur vergabe des Namens für den Computer
+        JTextField tx_Spieler2 = new JTextField("Captain Kirk");
 
 
 // Geht zurück zum Startbildschirm
@@ -70,13 +73,13 @@ public class PVCListener implements ActionListener {
 
         JLabel label_button = new JLabel("");
         JButton start = new JButton("START");
+        start.addActionListener(new StartListener(spielername1, spielername2, tx_Spieler1, tx_Spieler2));
 
 
 // Zufügen der Elemente zu den Panels
         eingabe.add(label_sp1);
-        eingabe.add(spielerName1);
-      /*  eingabe.add(label_sp1_);
-        eingabe.add(label_sp1_blank);*/
+        eingabe.add(tx_Spieler1);
+
         eingabe.add(difficult);
         eingabe.add(difficultList);
         eingabe.add(label_button);
@@ -84,18 +87,15 @@ public class PVCListener implements ActionListener {
         eingabe.add(start);
 
 
-      /*  button.add(label_button);
-        button.add(back);
-        button.add(start);*/
+
 
         pvc.add(eingabe);
-pvc.setPreferredSize(new Dimension(120,300));
-       /* pvc.add(button);*/
+        pvc.setPreferredSize(new Dimension(120, 300));
+
 
         panelMenu.removeAll();
 
         panelMenu.add(pvc);
-
 
 
         // Um das Zusätzliche Panel zusätzlich in dem Startframe anzuzeigen

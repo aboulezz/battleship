@@ -51,8 +51,7 @@ public class StartBildschirm {
         JLabel battleship = new JLabel("     BATTLESHIP     ");
 
 
-       /* battleship.setIcon(new ImageIcon("BATTLESHIP.gif"));
-        battleship.setPreferredSize(new Dimension(200, 50));*/
+
 
 
         titel.add(battleship);
@@ -76,29 +75,26 @@ public class StartBildschirm {
         JButton pvp = new JButton();
         pvp.setIcon(new ImageIcon("pvp_k.jpg"));
 
-        /*pvp.setContentAreaFilled(false);*/
+
         JButton pvc = new JButton();
         pvc.setIcon(new ImageIcon("pvc_k.jpg"));
-        /*pvc.setContentAreaFilled(false);*/
+
         JButton laden = new JButton();
         laden.setIcon(new ImageIcon("laden_k.jpg"));
-        /*laden.setContentAreaFilled(false);*/
+
         JButton highscore = new JButton();
         highscore.setIcon(new ImageIcon("highscore_k.jpg"));
-       /* highscore.setContentAreaFilled(false);*/
 
 
 
-        // Art der Schrift f�r den Spielnamen
+
+        // Art der Schrift für den Spielnamen
         Font font = new Font("Broadway", Font.BOLD, 32);
         battleship.setFont(font);
         battleship.setForeground(Color.RED);
 
 //Buttons werden dem Panel hinzugef�gt
-      /*  pButton.add(pvp);
-        pButton.add(pvc);
-        pButton.add(laden);
-        pButton.add(highscore);*/
+
 
         toolBar.add(pvp);
         toolBar.add(pvc);
@@ -113,8 +109,7 @@ public class StartBildschirm {
         pvc.addActionListener(new PVCListener(frame, panelMenu));
 
 //Panels dem "Haupt Panel" hinzufügen
-        /*panelMain.add(pButton,BorderLayout.SOUTH)*/
-        ;
+
         panelMain.add(panelMenu, BorderLayout.EAST);
 
         panelMain.add(toolBar, BorderLayout.WEST);
